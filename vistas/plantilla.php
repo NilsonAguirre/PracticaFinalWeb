@@ -21,8 +21,7 @@
 <body>
 
 <?php 
-    include "vistas/registro.php"
-
+    include "registro.php"
  ?>
 
 

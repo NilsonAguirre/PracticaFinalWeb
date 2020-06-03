@@ -3,10 +3,10 @@
 class conexion{
 	
 	static public function conectar(){
-		$link = new PDO("mysql:host=localhost; dbname=bdproyecto",
-					   "root",
-					    "");
-		$link -> exec("set names utf8");
+		$link = mysqli_connect("localhost","root","","bdproyecto");
+
+		$link = new mysqli("localhost", "root","","bdproyecto");
+		
 		return $link;
 	}
 	}

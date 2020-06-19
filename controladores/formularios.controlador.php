@@ -2,6 +2,8 @@
 
 class ControladorFormularios{
 	
+	/*----------  registro  ----------*/
+	
 	public function ctrRegistro(){
 		if (isset($_POST["registroNombre"])){
 			$tabla = "bdusuarios";
@@ -14,9 +16,22 @@ class ControladorFormularios{
 			move_uploaded_file($_FILES['registroFoto']['tmp_name'],$carpeta.$nombre_imagen);
 
 
-			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos);
+			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos,null);
 			return $respuesta;
 		}
 	}
+
+	/*----------  ingreso  ----------*/
+
+	public function ctrIngreso(){
+		if (isset($_POST["ingresoEmail"])){
+			$tabla = "bdusuarios";
+			$datos = "email";
+			$valor = $_POST["ingresoEmail"];
+			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos,$valor);
+			return $respuesta;
+		}	
+	}
+	
 }
 ?>

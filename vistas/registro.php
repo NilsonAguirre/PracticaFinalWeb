@@ -1,16 +1,14 @@
-   <div class="container-fluid">
-      <h1>Este es el programa</h1>
-      <!-- Modal -->
-    <!--div class="modal fade" id="staticBackdrop2"  data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Registro</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body"-->
+       <div class="modal fade" id="staticBackdrop2" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Registro</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div class="container-fluid">
             <form method="post" enctype="multipart/form-data">
               <div class="form-row">
                 <div class="col-md-6 mb-3">
@@ -78,28 +76,38 @@
                 <input type="file" id="fuser" name="registroFoto" size="20"><br><br>
               </div>
               
+                 
+              <div class="modal-footer">
+                <input type="reset" name="clear" value="Borrar" class="btn btn-secondary">
+                <input type="submit" name="Guardar" id="alert_regn" value="Enviar" class="btn btn-primary" onclick="registro()">
+
+              </div>
+             
+            </form>
+            </div>                                             
+          </div>
+        </div>
+      </div> 
+
+</div>
+<div>
                  <?php 
-                     $registroUser = ControladorFormularios::ctrRegistro();
+                     $registro =ControladorFormularios::ctrRegistro();
                      
-                    
-                  if($registroUser == "ok"){
+                    /*=============================================
+                      limpiar las variables guardadas en el navegador
+                      la memoria cache y variables post para que se 
+                      quite el letrero de ingreso exitoso.
+                    =============================================*/
+                                
+                     if($registro == "ok"){
                     echo '<script>
                       if( window.history.replaceState){
                           window.history.replaceState(null,null,window.location.href);
                       }
+                    alert("El usuario ha sido registrado Exitosamente!");
                     </script>';
-
                     echo '<div class="alert alert-success text-center">El usuario ha sido registrado Exitosamente!</div>';
                   }
-
                   ?>
-              <div class="modal-footer">
-                <input type="reset" name="clear" value="Borrar" class="btn btn-secondary">
-                <input type="submit" name="Guardar" value="Enviar" class="btn btn-primary" onclick="registro()" >
               </div>
-            </form>
-          <!--/div>
-        </div>
-      </div>
-    </div-->   
-</div>

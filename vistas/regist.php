@@ -12,20 +12,15 @@
                   <label for="validationpass">Crea una contraseña</label>
                   <input type="text" class="form-control" id="validationpass" name="registroContraseña" required>
                   <input type="reset" name="clear" value="Borrar" class="btn btn-secondary">
-                <input type="button" name="Guardar" value="Enviar" class="btn btn-primary" >
+                <input type="submit" name="Guardar" value="Enviar" class="btn btn-primary" >
 
               </div>
               <div>
                  <?php 
                      $registro =ControladorFormularios::ctrRegistro();
                      
-                    /*=============================================
-                      limpiar las variables guardadas en el navegador
-                      la memoria cache y variables post para que se 
-                      quite el letrero de ingreso exitoso.
-                    =============================================*/
-                                
-                     if($registro == "ok"){
+                    
+                  if($registro == "ok"){
                     echo '<script>
                       if( window.history.replaceState){
                           window.history.replaceState(null,null,window.location.href);

@@ -15,7 +15,6 @@ class ControladorFormularios{
 			$carpeta=$_SERVER['DOCUMENT_ROOT'].'/proyectos/PracticaFinal/vistas/imagenes/';
 			move_uploaded_file($_FILES['registroFoto']['tmp_name'],$carpeta.$nombre_imagen);
 
-
 			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos,null);
 			return $respuesta;
 		}
@@ -26,10 +25,16 @@ class ControladorFormularios{
 	public function ctrIngreso(){
 		if (isset($_POST["ingresoEmail"])){
 			$tabla = "bdusuarios";
-			$datos = "email";
+			$datos ="email";
 			$valor = $_POST["ingresoEmail"];
+			$psw =$_POST["ingresoPass"];
 			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos,$valor);
-			return $respuesta;
+			if(($respuesta['password']==$psw)){
+				return "ack";
+			}else{
+				return "nack";	
+			}
+
 		}	
 	}
 	

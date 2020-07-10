@@ -6,21 +6,23 @@ class ControladorFormularios{
 	public function ctrRegistro(){
 		if (isset($_POST["registroNombre"])){
 			$tabla = "bdusuarios";
-			$datos = array('nombre' => $_POST["registroNombre"], 'apellido' => $_POST["registroApellido"], 'email' => $_POST["registroEmail"], 'password' => $_POST["registroPassword"], 'ciudad' => $_POST["registroCiudad"], 'departamento' => $_POST["registroDepartamento"], 'foto' => $_FILES["registroFoto"]['name']);
+			$datos = array('nombre' => $_POST["registroNombre"], 'apellido' => $_POST["registroApellido"], 'email' => $_POST["registroEmail"], 'password' => $_POST["registroPassword"], 'departamento' => $_POST["registroDepartamento"], 'foto' => $_FILES["registroFoto"]['name']);
+
 
 			$nombre_imagen=$_FILES['registroFoto']['name'];
 			$tipo_imagen=$_FILES['registroFoto']['type'];
 			$tamanho_imagen=$_FILES['registroFoto']['size'];
-			$carpeta=$_SERVER['DOCUMENT_ROOT'].'/proyectos/PracticaFinal/vistas/imagenes/';
+			$carpeta=$_SERVER['DOCUMENT_ROOT'].'/proyectos/Club_Cars/imagenes/';
 			move_uploaded_file($_FILES['registroFoto']['tmp_name'],$carpeta.$nombre_imagen);
 
 			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos,null);
+
 			if($respuesta == "ok"){
 				  echo '<script>
 				  if( window.history.replaceState){
 				    window.history.replaceState(null,null,window.location.href);
 				  }
-				  window.location="index.php?pagina=inicio"
+				  window.location="index.php?pagina=ingreso"
 				  alert("El usuario ha sido registrado Exitosamente!");
 				  
 				  </script>';
@@ -57,9 +59,9 @@ class ControladorFormularios{
 			else{
 				
 				 if(($respuesta['password']==$psw)){
-					setcookie("usernombre",$respuesta['nombre'],time()+15,'/');
-				 	setcookie("userapellido",$respuesta['apellido'],time()+15,'/');
-				 	setcookie("userfoto",$respuesta['foto'],time()+15,'/');
+					setcookie("usernombre",$respuesta['nombre'],time()+300,'/');
+				 	setcookie("userapellido",$respuesta['apellido'],time()+300,'/');
+				 	setcookie("userfoto",$respuesta['foto'],time()+300,'/');
 				 	$_SESSION["miperfil"] = "ok";
 					echo '<script>
 					  if( window.history.replaceState){
@@ -81,5 +83,17 @@ class ControladorFormularios{
 
 			}
 	}
+	public function ctrBusqueda(){
+			$link = ModeloFormularios::mdlBusqueda();
+			return $link;
+		}
+
+	
+	public function ctrExcel($readcsv){
+		$tabla = "pruebacarros";
+		$link = ModeloFormularios::mdlExcel($readcsv,$tabla);
+	
 }
+}	
+
 ?>

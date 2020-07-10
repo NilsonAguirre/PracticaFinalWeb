@@ -1,18 +1,9 @@
 <?php 
 $ingreso = ControladorFormularios::ctrIngreso();
 ?>
-<div class="container bodyingreso ">
-    <nav class="row navbar navbar-expand-lg navbar-dark bg-success">
-      <div class="col-lg-12 collapse navbar-collapse" id="navbarSupportedContent">
-        <a href="index.php?pagina=inicio" class="navbar-brand tpag btn btn-success ">
-          <img src="vistas/iconos/car1.png" width="50" height="50" class="d-inline-block align-top" alt="">
-        CarsColudea</a>
-       </div>   
-   </nav>
-
-<div class=" d-flex justify-content-center text-center mt-5">
-  
-  <form class="p-5 bg-light" method="post">
+<div class="container-fluid ing text-center">
+<img src="imagenes/ilustracion_ing.svg" class="ilustracion_ing">  
+<form class="bg-light " method="post">
   <div class="form-group">
     <label for="InputEmail">Email address</label>
     <div class="input-group">
@@ -42,5 +33,5 @@ $ingreso = ControladorFormularios::ctrIngreso();
 
   </div>
 </form>
-</div>
+
 </div>

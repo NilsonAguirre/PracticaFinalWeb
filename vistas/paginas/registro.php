@@ -1,42 +1,40 @@
-<div class="container ">
-    <nav class="row navbar navbar-expand-lg navbar-dark bg-success">
-      <div class="col-lg-12 collapse navbar-collapse" id="navbarSupportedContent">
-        <a href="index.php?pagina=inicio" class="navbar-brand tpag btn btn-success ">
-          <img src="vistas/iconos/car1.png" width="50" height="50" class="d-inline-block align-top" alt="">
-        CarsColudea</a>
-       </div>   
-   </nav>
-</div>
-
-<div class="d-flex justify-content-center text-center mt-5">
-  <form class="p-5 bg-light" method="post" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="validationDefault01">Nombre</label>
-        <input type="text" class="form-control" id="validationDefault01" name="registroNombre" required >
-      </div>
-      <div class="mb-3">
-        <label for="validationDefault02">Apellido</label>
-        <input type="text" class="form-control" id="validationDefault02" name="registroApellido" required>
-      </div>
-    
-      <div class=" mb-3">
-        <label for="validationDefaultUsername">Correo electronico</label>
-        <div class="input-group">
-          <input type="email" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" placeholder="example@gmail.com" name="registroEmail" required>
-        </div>
-      </div>
-      <div class=" mb-3">
-        <label for="validationpass">Crea una contraseña</label>
-        <input type="text" class="form-control" id="validationpass" name="registroPassword" required>
-      </div>
-    
-      <div class=" mb-3">
-        <label for="validationDefault03">Ciudad</label>
-        <input type="text" class="form-control" id="validationDefault03" name="registroCiudad" required>
-      </div>
-      <div class=" mb-3">
-        <label for="validationDefault04">Departamento</label>
-        <select class="custom-select" id="validationDefault04" name="registroDepartamento" required>
+<div class="container-fluid reg text-center">
+<img src="imagenes/ilustracion_reg.svg" class="ilustracion_reg"> 
+  <form class="bg-light" method="post" enctype="multipart/form-data">
+      
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+    </div>
+    <input type="text" class="form-control" id="validationDefault01" name="registroNombre" placeholder="Name" required>
+    </div>
+     
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fas fa-user"></i></span>
+    </div>
+    <input  type="text" class="form-control" id="validationDefault02" name="registroApellido" placeholder="LastName" required>
+    </div>
+  
+      <div class="input-group mb-3">
+    <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+    </div>
+    <input type="email" class="form-control" id="validationDefaultUsername"  aria-describedby="emailHelp" placeholder="example@gmail.com" name="registroEmail" required>
+    </div>
+  
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+    </div>
+    <input type="password" class="form-control" id="validationpass" name="registroPassword" placeholder="PassWord" required >
+    </div>
+  
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-globe-americas"></i></span>
+    </div>
+          <select class="custom-select" id="validationDefault04" name="registroDepartamento" required>
           <option disabled selected>-Seleccione-</option> 
           <option value="antioquia">Antioquia</option>
           <option value="arauca">Arauca</option>
@@ -64,9 +62,14 @@
         </select>
       </div>
     
-    <div class="form-row">
-      <label for="fuser">Foto </label>
-      <input type="file" id="fuser" name="registroFoto" size="20"><br><br>
+    
+    
+    <div class="form-row input-group mb-3 ">
+    <div class="input-group-prepend cfoto">
+          <span class="input-group-text"><i class="fas fa-image"></i></span>
+    
+    <input type="file" id="fuser" name="registroFoto" size="20" >
+    </div>
     </div>
     <div class="">
       <input type="reset" name="clear" value="Borrar" class="btn btn-secondary">

@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    box-sizing: border-box;
+    font-weight: 700;
+}
+
+.nav_categorias ul {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.nav_categorias ul li {
+    width: 100%;
+    background: #004958;
+    border: 2px solid #247F88;
+    list-style: none;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin: 4px;
+}
+
+.nav_categorias ul li {
+    border: 2px solid #247F88;
+}
+
+.filtro {
+    float: left;
+    width: 12%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.filtro .mycheck {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.card {
+    padding: 10px;
+    margin: 10px;
+}
+
+.card>a {
+    display: flex;
+    height: 50%;
+    align-items: center;
+}
+
+.card img {
+    box-shadow: 2px 2px 2px #000;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.izq {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    border: 1px solid;
+    margin: 10px;
+}
+
+.der {
+    width: 88%;
+}

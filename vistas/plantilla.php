@@ -12,7 +12,7 @@
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/estilo_menu.css">
+    <link rel="stylesheet" href="css/estilomenu.css">
     <link rel="stylesheet" href="css/estilo_inicio.css">
     <link rel="stylesheet" href="css/estiloplantilla.css">
     <link rel="stylesheet" href="css/estilo_categorias.css">
@@ -78,7 +78,9 @@ if (isset($_GET['pagina'])) {
           }</script>';
           include "paginas/inicio.php";          
         }else{
-          include "paginas/perfil.php"; 
+          echo '<script> document.getElementById("myheader").style.display="block";</script>';
+          include "paginas/perfil.php";
+ 
         }      
       }else{
         include "paginas/inicio.php";
@@ -98,24 +100,37 @@ if (isset($_GET['pagina'])) {
     if($_GET["pagina"] != "inicio"){
       echo '<script> document.getElementById("myheader").style.display="block";</script>';
     }
+    $ubi=$_GET["pagina"];
     include "paginas/".$_GET["pagina"].".php";
-      }
-    }
-    else{
-      include "paginas/inicio.php";
-    }
- 
-   ?>    
+  }
+}
+else{
+  include "paginas/inicio.php";
+}
+
+?>    
 
 <?php 
-        include "paginas/menu_navegacion.php";
-        ?>
+  include "paginas/menu_navegacion.php";
+  if(isset($_GET["pagina"]) && ($_GET["pagina"] != "ingreso") && ($_GET["pagina"] != "registro") && ($_GET["pagina"] != "perfil")){
+    echo '<script> document.getElementById("'.$_GET["pagina"].'").classList.toggle("active");</script>';
+    echo '<script> document.getElementById("inicio").classList.toggle("active");</script>';
+    echo '<script> 
+    if("'.$_GET["pagina"].'"=="suv"){
+      document.getElementById("categorias").classList.toggle("active");
+    }
+    </script>';
+  }
+  ?>
 
 
 <script src="js/menu.js"></script>
 <?php
       /*----------  cambiar los datos y botones cuando ingresa  ----------*/
+      
+      
     if(isset($_SESSION["miperfil"])){
+      
       if($_SESSION["miperfil"]=="ok"){
         if(isset($_COOKIE['usernombre'])){
           echo ' <script > 
@@ -126,7 +141,6 @@ if (isset($_GET['pagina'])) {
          document.getElementById("boton4").classList.remove("d-none");
          document.getElementById("boton3").classList.add("d-block");
          document.getElementById("boton4").classList.add("d-block");     
-
          </script>';  
          if(isset($_COOKIE['userfoto']) && ($_COOKIE['userfoto'] != NULL)){
           echo ' <script > 

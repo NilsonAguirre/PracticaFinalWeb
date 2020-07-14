@@ -6,9 +6,7 @@ class ControladorFormularios{
 	public function ctrRegistro(){
 		if (isset($_POST["registroNombre"])){
 			$tabla = "bdusuarios";
-			$datos = array('nombre' => $_POST["registroNombre"], 'apellido' => $_POST["registroApellido"], 'email' => $_POST["registroEmail"], 'password' => $_POST["registroPassword"], 'departamento' => $_POST["registroDepartamento"], 'foto' => $_FILES["registroFoto"]['name']);
-
-
+			$datos = array('nombre' => $_POST["registroNombre"], 'apellido' => $_POST["registroApellido"], 'email' => $_POST["registroEmail"], 'password' => $_POST["registroPassword"], 'foto' => $_FILES["registroFoto"]['name']);
 			$nombre_imagen=$_FILES['registroFoto']['name'];
 			$tipo_imagen=$_FILES['registroFoto']['type'];
 			$tamanho_imagen=$_FILES['registroFoto']['size'];
@@ -41,7 +39,7 @@ class ControladorFormularios{
 			$psw =$_POST["ingresoPass"];
 			$respuesta = ModeloFormularios::mdlRegistro($tabla,$datos,$valor);
 			
-			if(!isset($respuesta)){
+			if($respuesta=="no resultado"){
 				/*=============================================
 				 limpiar las variables guardadas en el navegador
 				 la memoria cache y variables post para que se 
@@ -53,15 +51,16 @@ class ControladorFormularios{
 				    window.history.replaceState(null,null,window.location.href);
 				 }</script>';
 				 echo '<div class="alert alert-danger text-center">El correo y/o la contraseña son incorrectos</div>';
-			
 
 			}	
 			else{
 				
 				 if(($respuesta['password']==$psw)){
-					setcookie("usernombre",$respuesta['nombre'],time()+300,'/');
-				 	setcookie("userapellido",$respuesta['apellido'],time()+300,'/');
-				 	setcookie("userfoto",$respuesta['foto'],time()+300,'/');
+
+					setcookie("useremail",$respuesta['email'],time()+300*300,'/');
+					setcookie("usernombre",$respuesta['nombre'],time()+300*300,'/');
+				 	setcookie("userapellido",$respuesta['apellido'],time()+300*300,'/');
+				 	setcookie("userfoto",$respuesta['foto'],time()+300*300,'/');
 				 	$_SESSION["miperfil"] = "ok";
 					echo '<script>
 					  if( window.history.replaceState){
@@ -69,20 +68,54 @@ class ControladorFormularios{
 					  }
 
 					  window.location="index.php?pagina=inicio"
-					  alert("Bienvenido '.$respuesta['nombre'].' '.$respuesta['apellido'].'!");
 					  </script>';
 					  
 				}else{
-					 echo '<script>
-					  if( window.history.replaceState){
-					    window.history.replaceState(null,null,window.location.href);
-					  }</script>';
-					  echo '<div class="alert alert-danger text-center">El correo y/o la contraseña son incorrectos</div>';
+					return "no valido";
 				}
 			}
 
 			}
 	}
+	public function ctrPersonal(){
+		$tabla = "bdusuarios";
+		$datos = "email";
+		$valor =$_COOKIE['useremail'];
+		$respuestaP = ModeloFormularios::mdlPersonal($tabla,$datos,$valor);
+		if($respuestaP=="no resultado"){
+			/*=============================================
+			 limpiar las variables guardadas en el navegador
+			 la memoria cache y variables post para que se 
+			 quite el letrero de ingreso exitoso.
+			=============================================*/
+
+			 echo '<script>
+			 if( window.history.replaceState){
+				window.history.replaceState(null,null,window.location.href);
+			 }</script>';
+		}	
+		else{
+			return $respuestaP;
+		}
+	}
+	public function ctractual(){
+		$tabla = "bdusuarios";
+		if(isset($_POST['cambio1'])){
+			$datos = "nombre";
+			$valor =$_POST['cambio1'];
+		}
+		
+		$respuestaA = ModeloFormularios::mdlactual($tabla,$datos,$valor);
+		if($respuestaA=="no resultado"){
+			 return $respuestaA;
+		}	
+		else{
+			return "ok";
+		}
+	}
+
+
+
 	public function ctrBusqueda(){
 			$link = ModeloFormularios::mdlBusqueda();
 			return $link;

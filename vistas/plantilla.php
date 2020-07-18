@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilomenu.css">
-    <link rel="stylesheet" href="css/estilo_inicio.css">
+    <link rel="stylesheet" href="css/estiloinicio.css">
     <link rel="stylesheet" href="css/estiloplantilla.css">
     <link rel="stylesheet" href="css/estilo_categorias.css">
 
@@ -29,6 +29,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,800;1,500&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href = "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;800;900&display=swap" rel = "stylesheet">
     <script src="https://kit.fontawesome.com/342fa4d5a9.js" crossorigin="anonymous"></script>
 </head>
 
@@ -40,7 +42,7 @@
     </div>
 </header>
 <div class="acceso">
-<a class="nav-link float-left " > <img src="imagenes/user.png" width="50" height="50" id="imuser" class="img-fluid rounded-circle "></a>
+<a class="nav-link float-left " > <img src="imagenes/user.png" width="50" height="50" id="imuser" class=" rounded-circle "></a>
 <div class="btn-group" role="group">
 <button type="button" class="btn btn-transparent text-white rounded dropdown-toggle" href="index.php?pagina=ingreso" id="nusuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mi Cuenta</button>
 <div class="dropdown-menu " aria-labelledby="nusuario">
@@ -58,7 +60,7 @@
 <?php 
 //ubicacion csv
 
-define('CSV', '100Recordsm.csv');
+define('CSV', 'bdcarros2.csv');
 //leer csv
 $readCsv = array_map('str_getcsv', file(CSV));
 $TablaExcel = new ControladorFormularios();
@@ -95,7 +97,11 @@ if (isset($_GET['pagina'])) {
   else if($_GET["pagina"] == "ingreso" ||
   $_GET["pagina"] == "registro" ||
   $_GET["pagina"] == "inicio" ||
-  $_GET["pagina"] == "suv" ||
+  $_GET["pagina"] == "categorias" ||
+  $_GET["pagina"] == "vendidos" ||
+  $_GET["pagina"] == "noticias" ||
+  $_GET["pagina"] == "multimedia" ||
+  $_GET["pagina"] == "concesionarios2" ||
   $_GET["pagina"] == "salir"){
     if($_GET["pagina"] != "inicio"){
       echo '<script> document.getElementById("myheader").style.display="block";</script>';
@@ -115,72 +121,91 @@ else{
   if(isset($_GET["pagina"]) && ($_GET["pagina"] != "ingreso") && ($_GET["pagina"] != "registro") && ($_GET["pagina"] != "perfil")){
     echo '<script> document.getElementById("'.$_GET["pagina"].'").classList.toggle("active");</script>';
     echo '<script> document.getElementById("inicio").classList.toggle("active");</script>';
+  }
+  if(isset($_GET["categorias"])){
     echo '<script> 
-    if("'.$_GET["pagina"].'"=="suv"){
-      document.getElementById("categorias").classList.toggle("active");
+    
+    if("'.$_GET["categorias"].'"=="suv"){
+      document.getElementById("suv").classList.toggle("active");
+    }
+    if("'.$_GET["categorias"].'"=="sedan"){
+      document.getElementById("sedan").classList.toggle("active");
+    }
+    if("'.$_GET["categorias"].'"=="pickup"){
+      document.getElementById("pickup").classList.toggle("active");
+    }
+    if("'.$_GET["categorias"].'"=="camioneta"){
+      document.getElementById("camioneta").classList.toggle("active");
+    }
+    if("'.$_GET["categorias"].'"=="deportivo"){
+      document.getElementById("deportivo").classList.toggle("active");
     }
     </script>';
   }
   ?>
-
-
 <script src="js/menu.js"></script>
+<script src="js/lightboxc.js"></script>
 <?php
       /*----------  cambiar los datos y botones cuando ingresa  ----------*/
       
       
-    if(isset($_SESSION["miperfil"])){
-      
-      if($_SESSION["miperfil"]=="ok"){
-        if(isset($_COOKIE['usernombre'])){
-          echo ' <script > 
-          document.getElementById("nusuario").innerHTML= "'.$_COOKIE['usernombre'].'"+" "+ "'.$_COOKIE['userapellido'].'"; 
-         document.getElementById("boton1").classList.add("d-none");
-         document.getElementById("boton2").classList.add("d-none");
-         document.getElementById("boton3").classList.remove("d-none");
-         document.getElementById("boton4").classList.remove("d-none");
-         document.getElementById("boton3").classList.add("d-block");
-         document.getElementById("boton4").classList.add("d-block");     
-         </script>';  
-         if(isset($_COOKIE['userfoto']) && ($_COOKIE['userfoto'] != NULL)){
-          echo ' <script > 
-          var foto="'.$_COOKIE['userfoto'].'";
-          document.getElementById("imuser").src="imagenes/"+foto;
-         </script>';  
-         
-        }
+      if(isset($_SESSION["miperfil"])){
+        
+        if($_SESSION["miperfil"]=="ok"){
+          if(isset($_COOKIE['usernombre'])){
+            echo ' <script > 
+            document.getElementById("nusuario").innerHTML= "'.$_COOKIE['usernombre'].'"+" "+ "'.$_COOKIE['userapellido'].'"; 
+            document.getElementById("boton1").classList.add("d-none");
+            document.getElementById("boton2").classList.add("d-none");
+            document.getElementById("boton3").classList.remove("d-none");
+            document.getElementById("boton4").classList.remove("d-none");
+            document.getElementById("boton3").classList.add("d-block");
+            document.getElementById("boton4").classList.add("d-block");     
+            </script>';  
+            if(isset($_COOKIE['userfoto']) && ($_COOKIE['userfoto'] != NULL)){
+              echo ' <script > 
+              var foto="'.$_COOKIE['userfoto'].'";
+              document.getElementById("imuser").src="imagenes/"+foto;
+              </script>';  
+              
+            }
+          }
+          else{
+            echo '<script>
+            if( window.history.replaceState){
+              window.history.replaceState(null,null,window.location.href);
+            }</script>';
+          }             
+        }           
       }
-        else{
-          echo '<script>
-          if( window.history.replaceState){
-            window.history.replaceState(null,null,window.location.href);
-          }</script>';
-        }             
-      }           
-    }
-    ?>  
+      ?>  
+  
     <footer id="contacto">
-        <div class="contenedor footer-content">
-            <div class="contact-us">
-                <h2 class="brand">ClubCars</h2>
-                <p>nilson.aguirre@udea.edu.co</p>
-                <p>sebastian.saldarriagaa@udea.edu.co</p>
-
-            </div>
-            <div class="social-media">
-                <a href="./" class="social-media-icon">
-                    <i class='bx bxl-facebook'></i>
-                </a>
-                <a href="./" class="social-media-icon">
-                    <i class='bx bxl-twitter'></i>
-                </a>
-                <a href="./" class="social-media-icon">
-                    <i class='bx bxl-instagram'></i>
-                </a>
-            </div>
+      <div class="contenedor footer-content">
+        <div class="contact-us">
+          <h2 class="brand">ClubCars</h2>
+          <p>nilson.aguirre@udea.edu.co</p>
+          <p>sebastian.saldarriagaa@udea.edu.co</p>
+          
         </div>
-        <div class="line"></div>
-    </footer>
+        <div class="social-media">
+          <a href="./" class="social-media-icon">
+          <i class='bx bxl-facebook'></i>
+        </a>
+        <a href="./" class="social-media-icon">
+        <i class='bx bxl-twitter'></i>
+      </a>
+      <a href="./" class="social-media-icon">
+      <i class='bx bxl-instagram'></i>
+    </a>
+  </div>
+</div>
+<div class="line"></div>
+</footer>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true" async defer></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script type="text/javascript" src="js/conces.js"></script>
+
 </body>
 
 </html>

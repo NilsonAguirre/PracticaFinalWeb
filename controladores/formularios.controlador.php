@@ -101,7 +101,7 @@ class ControladorFormularios{
 	public function ctractual(){
 		$tabla = "bdusuarios";
 		if(isset($_POST['cambio1'])){
-			$datos = "nombre";
+			$datos = "password";
 			$valor =$_POST['cambio1'];
 		}
 		

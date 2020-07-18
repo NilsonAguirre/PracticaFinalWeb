@@ -11,7 +11,7 @@ $ingreso = ControladorFormularios::ctrIngreso();
           <span class="input-group-text"><i class="fas fa-envelope"></i></span>
     </div>
 
-    <input type="email" class="form-control" name="ingresoEmail" id="InputEmail" aria-describedby="emailHelp" onchange="validationEmail()" onkeydown="validationEmail()" required>
+    <input type="email" class="form-control" name="ingresoEmail" id="InputEmail" aria-describedby="emailHelp" placeholder="example@gmail.com" onchange="validationEmail()" onkeydown="validationEmail()" required>
     <span class="text-center" id="mytexte"></span> 
   </div>
 </div>
@@ -21,7 +21,7 @@ $ingreso = ControladorFormularios::ctrIngreso();
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-lock"></i></span>
     </div>
-    <input type="password" class="form-control" name="ingresoPass" id="InputPass" onkeydown="validationPass()" onchange="validationPass()" required>
+    <input type="password" class="form-control" name="ingresoPass" id="InputPass" placeholder="PassWord" onkeydown="validationPass()" onchange="validationPass()" required>
     <span class="text-center" id="mytextp"></span> 
   </div>
   </div>

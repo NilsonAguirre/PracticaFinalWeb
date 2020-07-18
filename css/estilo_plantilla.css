@@ -1,0 +1,544 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+.abrir {
+    animation: abrirpol 3s ease-in-out;
+}
+
+.cerrar {
+    animation: cerrarpol 3s ease-in-out;
+}
+
+#myheader {
+    display: none;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(to right, #000000 0%, #293949 100% 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    -webkitclip-path: polygon(0 100%, 100% 79%, 100% 0, 0 0);
+    clip-path: polygon(0 100%, 100% 77%, 100% 0, 0 0);
+}
+
+.head-ing {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.head-ing a {
+    font-size: 40px;
+    text-decoration-line: none;
+    color: #fff;
+}
+
+.head-ing:hover {
+    padding: 10px;
+}
+
+.icono_carro {
+    filter: invert(100);
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+}
+
+.head-ing:hover>.icono_carro {
+    padding: 10px;
+}
+
+.acceso {
+    top: 5px;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    z-index: 100;
+    border-radius: 10px;
+}
+
+.acceso>a>img {
+    background: #fff;
+    padding: 2px;
+    box-shadow: 1px solid #000;
+}
+
+.acceso>a>img:hover {
+    width: 60px;
+}
+
+.btn-group button {
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-group button:hover {
+    font-size: 25px;
+}
+
+.dropdown-menu {
+    background: #004958;
+}
+
+.dropdown-menu a {
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgb(2, 2, 2);
+    border-bottom: 2px solid #247F88;
+}
+
+.dropdown-menu a:hover {
+    background: #004958;
+    padding: 10px;
+    color: #1FB198;
+}
+
+.ing {
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ilustracion_ing {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.ilustracion_ing:hover {
+    width: 170px;
+    height: 170px;
+}
+
+.ing form {
+    border: 2px solid #004958;
+    width: 300px;
+    height: 410px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px solid #000;
+    padding: 40px;
+}
+
+#mytexte,
+#mytextp,
+#mytextRe,
+#mytextRp,
+#mytextn,
+#mytexta {
+    display: block;
+    width: 100%;
+    font-weight: 300;
+    font-size: 15px;
+    padding: 5px;
+    font-style: italic;
+}
+
+#form.invalide #mytexte:before,
+#form.invalidp #mytextp:before,
+#formR.invalide #mytextRe:before,
+#formR.invalidp #mytextRp:before,
+#formR.invalidn #mytextn:before,
+#formR.invalida #mytexta:before {
+    content: '';
+    position: absolute;
+    right: -32px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    background: url(../imagenes/invalid.png);
+    background-size: cover;
+    z-index: 1000;
+}
+
+#form.valide #mytexte:before,
+#form.validp #mytextp:before,
+#formR.valide #mytextRe:before,
+#formR.validp #mytextRp:before,
+#formR.validn #mytextn:before,
+#formR.valida #mytexta:before {
+    content: '';
+    position: absolute;
+    right: -32px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    background: url(../imagenes/valid.png);
+    background-size: cover;
+    z-index: 1000;
+}
+
+.reg {
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ilustracion_reg {
+    position: relative;
+    width: 300px;
+    height: 150px;
+}
+
+.ilustracion_reg:hover {
+    width: 320px;
+    height: 170px;
+}
+
+.reg form {
+    border: 2px solid #004958;
+    width: 350px;
+    height: 550px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px solid #000;
+    padding: 50px;
+}
+
+.reg .cfoto {
+    display: flex;
+    overflow: hidden;
+}
+
+.fcambios {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    background: #004958;
+    border-radius: 10px;
+    color: #fff;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bperfil .campo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.Cder {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+}
+
+.bperfil .campo i {
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Idesaparece {
+    display: none;
+    opacity: 0;
+}
+
+.Iaparece {
+    display: flex;
+    overflow: hidden;
+}
+
+
+/* footer */
+
+footer {
+    font-family: 'Playfair Display', serif;
+    background: #002e57;
+    background-image: linear-gradient(to right, #000000 0%, #293949 100% 100%);
+    padding-bottom: 0.1px;
+    padding-top: 40px;
+    clip-path: polygon(0 33%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.contact-us {
+    width: 40%;
+    color: #fff;
+}
+
+.contact-us .brand {
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.contact-us .brand:hover {
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.contact-us p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.contact-us p:hover {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.social-media {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.social-media-icon {
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+}
+
+.social-media-icon:hover {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    color: #002e57;
+    justify-content: center;
+}
+
+.social-media-icon i {
+    font-size: 30px;
+    line-height: 60px;
+}
+
+.social-media-icon i:hover {
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.line {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+.line:hover {
+    width: 94%;
+    height: 4px;
+}
+
+.title{
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.title:hover{
+    transform: scale(1.05);
+    transition: transform 0.6s ease-in-out;
+}
+
+.noti p{
+    font-family: 'Roboto Slab', serif;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+}
+
+.noti{
+    margin: 10px;
+}
+
+.noti p:hover{
+    color: #1FB198;
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+}
+
+.noti img:hover{
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+}
+
+.noti2{
+    padding: 10px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:800px) {
+    .ilustracion_ing {
+        width: 120px;
+        height: 120px;
+    }
+    .ing form {
+        width: 300px;
+        height: 410px;
+        padding: 40px;
+    }
+    .btn-group button {
+        font-weight: 400;
+        font-size: 20px;
+    }
+    .dropdown-menu a {
+        text-shadow: 1px 1px 1px rgb(2, 2, 2);
+    }
+    .contact-us .brand {
+        font-weight: 400;
+        font-size: 30px;
+    }
+    .contact-us .brand:hover {
+        font-weight: 600;
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .ilustracion_ing {
+        width: 100px;
+        height: 100px;
+    }
+    .ing form {
+        width: 300px;
+        height: 410px;
+        padding: 30px;
+    }
+    .head-ing h1 {
+        display: none;
+    }
+    #myheader a {
+        display: none;
+    }
+    #mytexte,
+    #mytextp,
+    #mytextRe,
+    #mytextRp,
+    #mytextn,
+    #mytexta {
+        font-size: 10px;
+        padding: 3px;
+    }
+    .reg form {
+        width: 300px;
+        height: 500px;
+        padding: 30px;
+    }
+    #form.invalide #mytexte:before,
+    #form.invalidp #mytextp:before,
+    #formR.invalide #mytextRe:before,
+    #formR.invalidp #mytextRp:before,
+    #formR.invalidn #mytextn:before,
+    #formR.invalida #mytexta:before {
+        right: -22px;
+        top: 8px;
+        width: 15px;
+        height: 15px;
+    }
+    #form.valide #mytexte:before,
+    #form.validp #mytextp:before,
+    #formR.valide #mytextRe:before,
+    #formR.validp #mytextRp:before,
+    #formR.validn #mytextn:before,
+    #formR.valida #mytexta:before {
+        right: -22px;
+        top: 8px;
+        width: 15px;
+        height: 15px;
+    }
+    footer {
+        padding-top: 40px;
+        clip-path: polygon(0 33%, 100% 0, 100% 100%, 0% 100%);
+    }
+    .footer-content {
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .contact-us {
+        width: 80%;
+    }
+    .social-media {
+        width: 80%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:370px) {
+    .reg {
+        font-size: 15px;
+    }
+    .reg form {
+        width: 300px;
+        height: 490px;
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width:319px) {
+    .ing {
+        font-size: 15px;
+    }
+    .ing form {
+        width: 200px;
+        height: 400px;
+        padding: 30px;
+    }
+    .reg {
+        font-size: 15px;
+    }
+    .reg form {
+        width: 200px;
+        height: 530px;
+        padding: 30px;
+    }
+}
+
+@keyframes abrirpol {
+    0% {
+        -webkitclip-path: polygon(0 56%, 100% 57%, 100% 57%, 0 56%);
+        clip-path: polygon(0 56%, 100% 57%, 100% 57%, 0 56%);
+    }
+    100% {
+        -webkitclip-path: polygon(0 100%, 100% 79%, 100% 0, 0 0);
+        clip-path: polygon(0 100%, 100% 79%, 100% 0, 0 0);
+    }
+}
+
+@keyframes cerrarpol {
+    0% {
+        -webkitclip-path: polygon(0 100%, 100% 79%, 100% 0, 0 0);
+        clip-path: polygon(0 100%, 100% 79%, 100% 0, 0 0);
+    }
+    100% {
+        -webkitclip-path: polygon(0 56%, 100% 57%, 100% 57%, 0 56%);
+        clip-path: polygon(0 56%, 100% 57%, 100% 57%, 0 56%);
+    }
+}

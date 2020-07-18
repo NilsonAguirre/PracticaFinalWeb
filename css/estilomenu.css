@@ -17,6 +17,11 @@
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
+.icono_menu:hover {
+    transform: scale(1.2);
+    transition: transform 1s;
+}
+
 .menu-navegacion {
     position: fixed;
     top: 0;
@@ -45,9 +50,11 @@
     margin: 0;
     text-decoration: none;
     border-bottom: 2px solid #247F88;
+    cursor: pointer;
 }
 
 .menu-navegacion a {
+    width: 100%;
     padding: 15px;
     color: rgb(211, 211, 211);
     text-decoration: none;

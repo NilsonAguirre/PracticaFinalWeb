@@ -1,5 +1,4 @@
-﻿MARCA,NOMBRE,CATEGORIA,MODELO,MOTOR,POTENCIA(HP),TORQUE(Nm),TRANSMISION,PRECIO (COP),CILINDRAJE(L),MAS VENDIDO,CONSUMO(Km/L),FOTO
-audi,a5,sedan,2018,TFSI,190,272,automatica,115.000.000,2.0,no,9.8,a5.jpg
+audi,a5,sedan,2018,TFSI,190,272,automatica,115.000.000,2.0,no,9.8,cerato.jpg
 kia,cerato forte,sedan,2019,Atkinson,147,179,automatica,62.000.000,2.0,no,12.2,ceratof.jpg
 mercedes benz,clase a,sedan,2019,4 cilindros,163,250,automatica,115.000.000,1.3,no,10.1,clasea.jpg
 toyota,corolla hybrid,sedan,2020,Atkinson,121,143,automatica,70.000.000,1.8,si,19.2,corolla.jpg

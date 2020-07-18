@@ -113,20 +113,10 @@ class ControladorFormularios{
 			return "ok";
 		}
 	}
-
-
-
 	public function ctrBusqueda(){
 			$link = ModeloFormularios::mdlBusqueda();
 			return $link;
 		}
-
-	
-	public function ctrExcel($readcsv){
-		$tabla = "pruebacarros";
-		$link = ModeloFormularios::mdlExcel($readcsv,$tabla);
-	
-}
 }	
 
 ?>

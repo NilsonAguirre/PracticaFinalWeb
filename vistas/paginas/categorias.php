@@ -20,12 +20,12 @@
                   <h3 class="card-title font-weight-bold m-0 cara2 Cdesaparece">Especificaciones</h3>
                   <p class="card-text m-0 cara2 Cdesaparece">Tipo: <?php echo $car[3]?></p>
                   <p class="card-text m-0 cara2 Cdesaparece">Motor: <?php echo $car[5]?></p>
-                  <p class="card-text m-0 cara2 Cdesaparece">Potencia: <?php echo $car[6]?></p>
-                  <p class="card-text m-0 cara2 Cdesaparece">torque: <?php echo $car[7]?></p>
+                  <p class="card-text m-0 cara2 Cdesaparece">Potencia: <?php echo $car[6]?> hp</p>
+                  <p class="card-text m-0 cara2 Cdesaparece">torque: <?php echo $car[7]?> Nm</p>
                   <p class="card-text m-0 cara2 Cdesaparece">Transmision: <?php echo $car[8]?></p>
-                  <p class="card-text m-0 cara2 Cdesaparece">Cilindraje: <?php echo $car[10]?></p>
+                  <p class="card-text m-0 cara2 Cdesaparece">Cilindraje: <?php echo $car[10]?> L</p>
                   <p class="card-text m-0 cara2 Cdesaparece">Comercial: <?php echo $car[11]?></p>
-                  <p class="card-text m-0 cara2 Cdesaparece">Consumo: <?php echo $car[12]?></p>
+                  <p class="card-text m-0 cara2 Cdesaparece">Consumo: <?php echo $car[12]?> Km/L</p>
                   </div>
                 </div>
                 <?php        

@@ -58,15 +58,6 @@
 </div>
 
 <?php 
-//ubicacion csv
-
-define('CSV', 'bdcarros2.csv');
-//leer csv
-$readCsv = array_map('str_getcsv', file(CSV));
-$TablaExcel = new ControladorFormularios();
-$TablaExcel->ctrExcel($readCsv);
-
-
 if (isset($_GET['pagina'])) {
   
   if($_GET["pagina"] == "perfil"){
